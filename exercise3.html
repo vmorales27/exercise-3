@@ -1,0 +1,67 @@
+
+<html>
+<head>
+<title>HTML Layout using Tables</title>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  ></script>
+    <style type="text/css">
+    	
+        #box1, #box2 {
+            border:1px solid;
+            float:left;
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+        }
+        
+        .label{
+        	display:block;
+
+        }
+
+        #box2item {
+        	list-style-type: none;
+        }
+       
+    </style>
+   
+</head>
+<body>
+<div id="box1">
+	 <label  class="label" for=""><input type="checkbox" class="fruits" value="apple"> apple</label>
+    <label class="label" for=""> <input type="checkbox" class="fruits" value="mango"> mango</label>
+    <label class="label" for=""><input  type="checkbox" class="fruits" value="strawberry"> strawberry</label>
+    <label class="label" for=""><input  type="checkbox" class="fruits" value="watermelon"> watermelon</label>
+</div>
+
+</div>
+
+<div id="box2">
+<ul id="box2item"></ul>
+</div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+		$(".fruits").change(function() {
+    
+    	var value = $(this).val();
+      		
+   		if (this.checked) {
+        $("#box2item").append("<li data-value='" + value + "'>" + value + "</li>");
+    	}
+    	else {
+         	$("#box2item").find('li[data-value="' + value + '"]').remove();
+    	}
+});
+	});
+	
+
+
+
+</script>
+    
+</body>
+</html>
